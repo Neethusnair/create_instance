@@ -54,7 +54,7 @@ jobs:
          #echo ${DEPLOYMENT}
          #echo "a"
          #kubectl apply -f ${DEPLOYMENT}
-         kubectl apply -f Output.json
+         kubectl apply -f Output.json --validate=false
          kubectl apply -f frontend.yaml
          kubectl wait --timeout=120s --for=condition=ready pod -l app=frontend
          kubectl rollout restart deploy frontend-deployment
