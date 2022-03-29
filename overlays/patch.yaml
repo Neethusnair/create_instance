@@ -10,7 +10,7 @@ spec:
         ports:
         - containerPort: 10
           $patch: delete
-        - containerPort: 1340  
+        - containerPort: 1350  
           
         
 ---
@@ -24,8 +24,8 @@ spec:
       $patch: delete
       targetPort: 10
       $patch: delete
-    - port: 1340
-      targetPort: 1340  
+    - port: 1350
+      targetPort: 1350  
 
 
 ---
@@ -38,15 +38,15 @@ spec:
   #   - abc.sreyo.in
   #     $patch: delete
     # - def.sreyo.in  
-    - hello.sreyo.in
+    - hola.sreyo.in
   http:
     - route:
         - destination:
             # host: frontend-service.default.svc.cluster.local
             # $patch: delete
             # host: test-frontend-service.default.svc.cluster.local
-            host: hello-frontend-service.default.svc.cluster.local
+            host: hola-frontend-service.default.svc.cluster.local
             port:
               # number: 8081  
               # $patch: delete 
-              number: 1340
+              number: 1350
