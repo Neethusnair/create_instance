@@ -16,10 +16,10 @@ env:
   fileName1: "base/kustomization"
   fileName: "overlays/patch"
   namePrefix: '${{ github.event.client_payload.deployment_file.namePrefix }}'
-  containerPortVal: ${{ github.event.client_payload.deployment_file.containerPortVal }}'
-  portVal:  ${{ github.event.client_payload.deployment_file.portVal }}'
-  domainName:  ${{ github.event.client_payload.deployment_file.domainName }}'
-  serviceName:  ${{ github.event.client_payload.deployment_file.serviceName }}'
+  containerPortVal: '${{ github.event.client_payload.deployment_file.containerPortVal }}'
+  portVal:  '${{ github.event.client_payload.deployment_file.portVal }}'
+  domainName:  '${{ github.event.client_payload.deployment_file.domainName }}'
+  serviceName:  '${{ github.event.client_payload.deployment_file.serviceName }}'
   EKS_CLUSTER: dev
   EKS_REGION: us-east-2
 
