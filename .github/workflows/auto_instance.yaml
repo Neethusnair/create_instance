@@ -80,11 +80,11 @@ jobs:
          echo ${domainName}
          echo ${serviceName}
          #echo "a"
-         ls
+         #ls
          #cd base
          #echo ${sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml}
-         sed "s|Neethu_hello|$namePrefix|g; " base/kustomization.template.yaml
-         echo $PATH
+         #sed "s|Neethu_hello|$namePrefix|g; " base/kustomization.template.yaml
+         #echo $PATH
          #kustomize build sed "s|Neethu_hello|$namePrefix|g; " base/kustomization.yaml
          #cat kustomize
          #kustomize build /usr/local/bin
@@ -97,6 +97,14 @@ jobs:
 #          kubectl wait --timeout=120s --for=condition=ready pod -l app=frontend
 #          kubectl rollout restart deploy frontend-deployment
 #          kubectl rollout status deployment frontend-deployment     
+       
+     - uses: DamianReeves/write-file-action@v1.0
+       with:
+         path: base/kustomization.yaml
+         contents: |
+             sed "s|Neethu_hello|$namePrefix|g; " base/kustomization.template.yaml
+         write-mode: overwrite
+         
          
 #      # Deploy gateway and virtual services
 #      - name: Deploy gateway
