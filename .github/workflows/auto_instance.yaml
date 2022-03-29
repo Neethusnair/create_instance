@@ -76,7 +76,7 @@ jobs:
          ls
          cd base
          sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml > $fileName1.yaml
-         sed "s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
+         #sed "s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
 #          #kubectl apply -f ${DEPLOYMENT}
 #          #kubectl apply -f Output.json --validate=false
 #          kubectl apply -f frontend.yaml
