@@ -22,14 +22,14 @@ jobs:
        uses: actions/checkout@v2
             
     # AWS Credentials
-    - uses: aws-actions/configure-aws-credentials@v1
-      with:
+     - uses: aws-actions/configure-aws-credentials@v1
+       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.EKS_REGION }}
 
     # Get the EKS credentials so we can deploy to the cluster
-    - run: |-
+     - run: |-
         aws eks --region $EKS_REGION update-kubeconfig --name $EKS_CLUSTER
       
      - name: Update CloudFlare DNS with Cluster IP 
@@ -46,10 +46,10 @@ jobs:
               -H "Content-Type: application/json"
          done
       
-        # Create new record with latest cluster external IP.
-        #CLUSTER_IP=34.136.63.109
-        CLUSTER_HOSTNAME=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
-        curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_DNS_ZONE }}/dns_records" \
+         # Create new record with latest cluster external IP.
+         #CLUSTER_IP=34.136.63.109
+         CLUSTER_HOSTNAME=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+         curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_DNS_ZONE }}/dns_records" \
            -H "X-Auth-Email: ${{ secrets.CLOUDFLARE_EMAIL }}" \
            -H "X-Auth-Key: ${{ secrets.CLOUDFLARE_API_KEY }}" \
            -H "Content-Type: application/json" \
