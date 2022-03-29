@@ -10,7 +10,7 @@ spec:
         ports:
         - containerPort: 10
           $patch: delete
-        - containerPort: 1350  
+        - containerPort: 80  
           
         
 ---
@@ -24,8 +24,8 @@ spec:
       $patch: delete
       targetPort: 10
       $patch: delete
-    - port: 1350
-      targetPort: 1350  
+    - port: 8081
+      targetPort: 80  
 
 
 ---
@@ -49,4 +49,4 @@ spec:
             port:
               # number: 8081  
               # $patch: delete 
-              number: 1350
+              number: 8081
