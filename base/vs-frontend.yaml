@@ -6,15 +6,14 @@ spec:
   hosts:
     # - $( MY_SERVICE_NAME ).sreyo.in
     # - abc.sreyo.in
-    - "$( MY_SERVICE_NAME )"
+    - "*"
   gateways:
     - gateway
   http:
     - route:
         - destination:
-            # host: frontend-service.default.svc.cluster.local
-            host: "$( MY_SERVICE_NAME )"
-            # host: frontend-service.default.svc.cluster.local
+            host: frontend-service.default.svc.cluster.local
+            # host: "$( MY_SERVICE_NAME )"
             port:
               number: 8081
             #subset: v2
