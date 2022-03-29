@@ -75,6 +75,7 @@ jobs:
          #echo "a"
          ls
          cd base
+         echo ${sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml}
          sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml > $fileName1.yaml
          #sed "s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
 #          #kubectl apply -f ${DEPLOYMENT}
