@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: frontend-vs
+spec:
+  hosts:
+    # - $( MY_SERVICE_NAME ).sreyo.in
+    # - abc.sreyo.in
+    - "$( MY_SERVICE_NAME )"
+  gateways:
+    - gateway
+  http:
+    - route:
+        - destination:
+            # host: frontend-service.default.svc.cluster.local
+            host: "$( MY_SERVICE_NAME )"
+            # host: frontend-service.default.svc.cluster.local
+            port:
+              number: 8081
+            #subset: v2
