@@ -77,6 +77,7 @@ jobs:
          #cd base
          #echo ${sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml}
          sed "s|Neethu_hello|$namePrefix|g; " base/kustomization.yaml
+         .base/kustomize build overlays
          #./kustomize build . | kubectl apply -f -
          #sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml > $fileName1.yaml
          #sed "s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
