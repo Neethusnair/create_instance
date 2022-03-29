@@ -34,11 +34,11 @@ kind: VirtualService
 metadata:
   name: frontend-vs
 spec:
-  # hosts:
-  # #   - abc.sreyo.in
-  # #     $patch: delete
-  #   # - def.sreyo.in  
-  #   - redcross.sreyo.in
+  hosts:
+  #   - abc.sreyo.in
+  #     $patch: delete
+    # - def.sreyo.in  
+    - redcross.sreyo.in
   http:
     - route:
         - destination:
