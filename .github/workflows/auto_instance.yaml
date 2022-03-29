@@ -11,9 +11,9 @@ on:
 env:
   #DEPLOYMENT: '${{ github.event.client_payload.deployment_file.deployment }}'
   #DEPLOYMENT: '{{ "apiVersion": "apps/v1", "kind": "Deployment", "metadata": { "name": "frontend-deployment", "labels": { "app": "frontend" } }, "spec": { "replicas": 1, "selector": { "matchLabels": { "app": "frontend" } }, "template": { "metedata": { "labels": { "app": "frontend" } }, "spec": { "imagePullSecrets": { "name": "jfrog-secret" }, "containers": { "name": "frontend", "image": "sreyo.jfrog.io/ns-docker-dev-local/frontend-docker", "imagePullPolicy": "Always", "ports": { "cointainerPort": 80 } } } } } }'
-  templateName1: "kustomization.template"           
+  templateName1: "base/kustomization.template"           
   templateName: "./overlays/patch.template"
-  fileName1: "kustomization"
+  fileName1: "base/kustomization"
   fileName: "./overlays/patch"
   namePrefix: '${{ github.event.client_payload.deployment_file.namePrefix }}'
   containerPortVal: '${{ github.event.client_payload.deployment_file.containerPortVal }}'
