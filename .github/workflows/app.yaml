@@ -39,11 +39,11 @@ jobs:
        kubectl delete secret jfrog-secret --ignore-not-found 
        kubectl create secret generic jfrog-secret --from-file=.dockerconfigjson=/home/runner/.docker/config.json  --type=kubernetes.io/dockerconfigjson   
          
-#      # Deploy gateway and virtual services
-#      - name: Deploy gateway
-#        run: |-
-#          kubectl apply -f gateway.yaml
-#          kubectl get svc -l=istio=ingressgateway -n istio-system         
+     # Deploy gateway and virtual services
+     - name: Deploy gateway
+       run: |-
+         kubectl apply -f gateway.yaml
+         kubectl get svc -l=istio=ingressgateway -n istio-system         
              
     # Set up kustomize
     - name: Set up Kustomize
