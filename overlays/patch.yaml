@@ -38,14 +38,14 @@ spec:
   #   - abc.sreyo.in
   #     $patch: delete
     # - def.sreyo.in  
-    - hola.sreyo.in
+    - redcross.sreyo.in
   http:
     - route:
         - destination:
             # host: frontend-service.default.svc.cluster.local
             # $patch: delete
             # host: test-frontend-service.default.svc.cluster.local
-            host: hola-frontend-service.default.svc.cluster.local
+            host: redcross-frontend-service.default.svc.cluster.local
             port:
               # number: 8081  
               # $patch: delete 
