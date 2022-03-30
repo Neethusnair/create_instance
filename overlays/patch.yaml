@@ -10,7 +10,7 @@ spec:
         ports:
         - containerPort: 10
           $patch: delete
-        - containerPort: 80  
+        - containerPort: containerPortVal 
           
         
 ---
@@ -24,8 +24,8 @@ spec:
       $patch: delete
       targetPort: 10
       $patch: delete
-    - port: 8081
-      targetPort: 80  
+    - port: portVal
+      targetPort: containerPortVal  
 
 
 ---
@@ -38,15 +38,15 @@ spec:
   #   - abc.sreyo.in
   #     $patch: delete
     # - def.sreyo.in  
-    - redcross.sreyo.in
+    - domainName
   http:
     - route:
         - destination:
             # host: frontend-service.default.svc.cluster.local
             # $patch: delete
             # host: test-frontend-service.default.svc.cluster.local
-            host: redcross-frontend-service.default.svc.cluster.local
+            host: serviceName
             port:
               # number: 8081  
               # $patch: delete 
-              number: 8081
+              number: portVal
