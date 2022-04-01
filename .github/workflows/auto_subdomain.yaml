@@ -36,7 +36,7 @@ jobs:
      - name: Update CloudFlare DNS with Cluster IP 
        run: |-
          # purge any existing records for our AWS subdomain
-         existing_records=( $(curl -X GET "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_DNS_ZONE }}/dns_records?type=A&name=${DOMAIN_NAME}.sreyo.in" \
+         existing_records=( $(curl -X GET "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_DNS_ZONE }}/dns_records?type=CNAME&name=${DOMAIN_NAME}.sreyo.in" \
             -H "X-Auth-Email: ${{ secrets.CLOUDFLARE_EMAIL }}" \
             -H "X-Auth-Key: ${{ secrets.CLOUDFLARE_API_KEY }}" \
             -H "Content-Type: application/json"   | jq -r '.result[].id') )
