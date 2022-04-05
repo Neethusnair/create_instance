@@ -15,10 +15,11 @@ env:
   templateName: "./overlays/patch.template"
   fileName1: "base/kustomization"
   fileName: "./overlays/patch"
-  #namePrefix: '${{ github.event.client_payload.deployment_file.namePrefix }}'
-  name: '${{ github.event.client_payload.deployment_file.namePrefix }}'
-  namePrefix: "${name} -"
-  label: '${{ github.event.client_payload.deployment_file.label }}'
+  namePrefix: '${{ github.event.client_payload.deployment_file.namePrefix }}'
+#   name: "'${{ github.event.client_payload.deployment_file.namePrefix }}'_customer"
+#   namePrefix: "${name} -"
+#   label: '${{ github.event.client_payload.deployment_file.label }}'
+  label: "'${{ github.event.client_payload.deployment_file.namePrefix }}'_customer"
   containerPortVal: '${{ github.event.client_payload.deployment_file.containerPortVal }}'
   portVal:  '${{ github.event.client_payload.deployment_file.portVal }}'
   domainName:  '${{ github.event.client_payload.deployment_file.domainName }}'
@@ -43,7 +44,7 @@ jobs:
          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
      - name: Create local changes
        run: |
-        echo ${namePrefix}
+        echo ${label}
         sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml > $fileName1.yaml
         #sed "s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
         sed "s|label|$label|g; s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
