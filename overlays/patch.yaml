@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  redcross--customers:
-    app: redcross--customer
+  redcross-customers:
+    app: redcross-customer
 spec:
   selector:
     matchLabels:
-      app: redcross--customer
+      app: redcross-customer
   template:
     metadata:
-      redcross--customers: # redcross--customers to select/identify the deployment
-        app: redcross--customer
+      redcross-customers: # redcross-customers to select/identify the deployment
+        app: redcross-customer
     spec:     # pod spec
       containers: 
-      - name: redcross--customer
+      - name: redcross-customer
         ports:
         - containerPort: 10
           $patch: delete
@@ -26,11 +26,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
-  redcross--customers:
-    app: redcross--customer
+  redcross-customers:
+    app: redcross-customer
 spec:
   selector:
-    app: redcross--customer
+    app: redcross-customer
   ports:
     - port: 8080
       $patch: delete
