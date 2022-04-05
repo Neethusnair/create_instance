@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  redcross1--customers:
-    app: redcross1--customer
+  labels:
+    app: hi-frontend
 spec:
   selector:
     matchLabels:
-      app: redcross1--customer
+      app: hi-frontend
   template:
     metadata:
-      redcross1--customers: # redcross1--customers to select/identify the deployment
-        app: redcross1--customer
+      labels: # labels to select/identify the deployment
+        app: hi-frontend
     spec:     # pod spec
       containers: 
-      - name: redcross1--customer
+      - name: hi-frontend
         ports:
         - containerPort: 10
           $patch: delete
-        - containerPort: 80  
+        - containerPort: 1339  
           
         
 ---
@@ -26,18 +26,18 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
-  redcross1--customers:
-    app: redcross1--customer
+  labels:
+    app: hi-frontend
 spec:
   selector:
-    app: redcross1--customer
+    app: hi-frontend
   ports:
     - port: 8080
       $patch: delete
       targetPort: 10
       $patch: delete
-    - port: 8081
-      targetPort: 80  
+    - port: 1339
+      targetPort: 1339  
 
 
 ---
@@ -50,15 +50,15 @@ spec:
   #   - abc.sreyo.in
   #     $patch: delete
     # - def.sreyo.in  
-    - redcross.sreyo.in
+    - ghi.sreyo.in
   http:
     - route:
         - destination:
             # host: frontend-service.default.svc.cluster.local
             # $patch: delete
             # host: test-frontend-service.default.svc.cluster.local
-            host: redcross-frontend-service.default.svc.cluster.local
+            host: hi-frontend-service.default.svc.cluster.local
             port:
               # number: 8081  
               # $patch: delete 
-              number: 8081
+              number: 1339

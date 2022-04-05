@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: frontend-deployment
   labels:
-    app: label
+    app: labelName
 spec:
   selector:
     matchLabels:
-      app: label
+      app: labelName
   template:
     metadata:
       labels: # labels to select/identify the deployment
-        app: label
+        app: labelName
     spec:     # pod spec
       containers: 
-      - name: label
+      - name: labelName
         ports:
         - containerPort: 10
           $patch: delete
@@ -27,10 +27,10 @@ kind: Service
 metadata:
   name: frontend-service
   labels:
-    app: label
+    app: labelName
 spec:
   selector:
-    app: label
+    app: labelName
   ports:
     - port: 8080
       $patch: delete

@@ -19,7 +19,7 @@ env:
 #   name: "'${{ github.event.client_payload.deployment_file.namePrefix }}'_customer"
 #   namePrefix: "${name} -"
 #   label: '${{ github.event.client_payload.deployment_file.label }}'
-  label: "${{ github.event.client_payload.deployment_file.namePrefix }}-customer"
+  labelName: "${{ github.event.client_payload.deployment_file.namePrefix }}-customer"
   containerPortVal: '${{ github.event.client_payload.deployment_file.containerPortVal }}'
   portVal:  '${{ github.event.client_payload.deployment_file.portVal }}'
   domainName:  '${{ github.event.client_payload.deployment_file.domainName }}'
@@ -47,7 +47,7 @@ jobs:
         echo ${label}
         sed "s|Neethu_hello|$namePrefix|g; " $templateName1.yaml > $fileName1.yaml
         #sed "s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
-        sed "s|label|$label|g; s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
+        sed "s|labelName|$labelName|g; s|containerPortVal|$containerPortVal|g; s|portVal|$portVal|g; s|domainName|$domainName|g; s|serviceName|$serviceName|g;" $templateName.yaml > $fileName.yaml
      - name: Commit files
        run: |
         git config --local user.email "neethu.somasekharan@sreyo.com"
