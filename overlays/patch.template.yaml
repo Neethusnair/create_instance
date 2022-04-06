@@ -19,7 +19,9 @@ spec:
         - containerPort: 10
           $patch: delete
         - containerPort: containerPortVal  
-          
+        env:
+        - name: PORT_VALUE
+          value: containerPortVal   
         
 ---
 apiVersion: v1
