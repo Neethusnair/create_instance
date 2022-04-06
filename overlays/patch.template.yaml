@@ -14,7 +14,7 @@ spec:
         app: labelName
     spec:     # pod spec
       containers: 
-      - name: labelName
+      - name: frontend
         ports:
         - containerPort: 10
           $patch: delete
