@@ -55,8 +55,7 @@ jobs:
     - name: Deploy application
       run: |-
         #./kustomize build . | kubectl apply -f -
-        ./kustomize build overlays
-#         ./kustomize build overlays | kubectl apply -f -
+        ./kustomize build overlays | kubectl apply -f -
 #         kubectl wait --for=condition=ready pod -l app=mongodb
 #         kubectl rollout status deployment mongodb-deployment
 #         kubectl get services -o wide
