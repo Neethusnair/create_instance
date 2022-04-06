@@ -14,7 +14,7 @@ spec:
         app: redcross-customer
     spec:     # pod spec
       containers: 
-      - name: redcross-customer
+      - name: frontend
         ports:
         - containerPort: 10
           $patch: delete
