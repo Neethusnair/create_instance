@@ -19,7 +19,9 @@ spec:
         - containerPort: 10
           $patch: delete
         - containerPort: 1337  
-          
+        env:
+        - name: PORT_VALUE
+          value: 1337   
         
 ---
 apiVersion: v1
