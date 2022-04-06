@@ -33,7 +33,7 @@ spec:
         - containerPort: 10
         env:
         - name: PORT_VALUE
-          value: 10
+          value: "10"
         
 ---
 apiVersion: v1

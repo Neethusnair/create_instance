@@ -21,7 +21,7 @@ spec:
         - containerPort: containerPortVal  
         env:
         - name: PORT_VALUE
-          value: containerPortVal   
+          value: "containerPortVal"   
         
 ---
 apiVersion: v1
