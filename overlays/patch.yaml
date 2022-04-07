@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   name: frontend-deployment
   labels:
-    app: ManagedorgInc1-customer
+    app: sreyo789-customer
 spec:
   selector:
     matchLabels:
-      app: ManagedorgInc1-customer
+      app: sreyo789-customer
   template:
     metadata:
       labels: # labels to select/identify the deployment
-        app: ManagedorgInc1-customer
+        app: sreyo789-customer
     spec:     # pod spec
       containers: 
       - name: frontend
@@ -29,10 +29,10 @@ kind: Service
 metadata:
   name: frontend-service
   labels:
-    app: ManagedorgInc1-customer
+    app: sreyo789-customer
 spec:
   selector:
-    app: ManagedorgInc1-customer
+    app: sreyo789-customer
   ports:
     - port: 8080
       $patch: delete
@@ -52,14 +52,14 @@ spec:
   #   - abc.sreyo.in
   #     $patch: delete
     # - def.sreyo.in  
-    - ManagedorgInc1.sreyo.in
+    - sreyo789.sreyo.in
   http:
     - route:
         - destination:
             # host: frontend-service.default.svc.cluster.local
             # $patch: delete
             # host: test-frontend-service.default.svc.cluster.local
-            host: ManagedorgInc1-backend-service.default.svc.cluster.local
+            host: sreyo789-backend-service.default.svc.cluster.local
             port:
               # number: 8081  
               # $patch: delete 
